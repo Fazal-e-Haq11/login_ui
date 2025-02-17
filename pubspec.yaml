@@ -82,7 +82,11 @@ fonts:
       family: rubik_regular
       fonts:
         - asset: font/rubik_regular.ttf
-#  #         weight: 700
+
+          family: Bowl
+          fonts:
+            - font: font/BowlbyOneSC-Regular.ttf
+              weight: 700
   #
   # For details regarding font from package dependencies,
   # see https://flutter.dev/to/font-from-package
