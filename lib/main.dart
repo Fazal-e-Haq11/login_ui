@@ -15,39 +15,51 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
+
         body: SafeArea(
+
           child: Column(
+
             children: [
-              SizedBox(height: 60,),
+              SizedBox(height: 60),
+
               Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                    Image(
-                        height: 60,
-                          width: 60,
-                          image: AssetImage(
-                        'images/logo.png',
-                      )),
-
-                   Column(children: [ 
-                     Text('Maintenance',
-                       style: TextStyle(
-                         color: Colors.black,
-                         fontSize: 35,
-
-                       ),
-                         ),
-                     Text('Box',
-                     style: TextStyle(fontSize: 35,
-                     color: Colors.orange),)
-                   ]),
-
-    ]),
-               
-              SizedBox(
-                height: 20,
+                  Image(
+                    height: 60,
+                    width: 60,
+                    image: AssetImage('images/logo.png'),
+                  ),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Maintenance',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 35,
+                        ),
+                      ),
+                        // Adjust the height as needed
+                      Text(
+                        'Box',
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
+
+
+
+
+              SizedBox(height: 20,),
               Center(
                 child: Text(
                   'Login',
