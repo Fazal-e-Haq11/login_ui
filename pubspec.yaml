@@ -74,19 +74,20 @@ flutter:
   # "family" key with the font family name, and a "font" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-  family: rubik_medium
   fonts:
-    - asset: font/rubik_medium.ttf
+    - family: RubikMedium
+      fonts:
+        - asset: font/rubik_medium.ttf
 
-      family: rubik_regular
+    - family: RubikRegular
       fonts:
         - asset: font/rubik_regular.ttf
 
-          family: Bowl
-          fonts:
-            - font: font/BowlbyOneSC-Regular.ttf
-              weight: 700
+    - family: BowlbyOneSC
+      fonts:
+        - asset: font/BowlbyOneSC-Regular.ttf
+
+
   #
   # For details regarding font from package dependencies,
   # see https://flutter.dev/to/font-from-package
