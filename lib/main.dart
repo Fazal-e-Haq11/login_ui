@@ -7,172 +7,160 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.white,
-
         body: SafeArea(
-
-          child: Column(
-           children: [
-              const SizedBox(height: 60),
-
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image(
-                    height: 80,
-                    width: 80,
-                    image: AssetImage('images/logo.png'),
-                  ),
-                  SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Maintenance',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 35,
-                          fontFamily: 'RubikMedium',
-                        ),
-                      ),
-                        // Adjust the height as needed
-                      Text(
-                        'Box',
-                        style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.orange,
-                          fontFamily: 'RubikMedium',
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF00C6FF), Color(0xFF0072FF)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
-
-              const SizedBox(height: 20,),
-              const Center(
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
-                    fontFamily: 'RubikMedium',
-                  ),
-                ),
-              ),
-              const Center(
-                child: Text(
-                  'Welcome to my \nnew login UI',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontFamily: 'rubik_regular',
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 50,),
-
-              Padding(
-                padding: const EdgeInsets.only(left: 20,right: 20),
-                child: TextFormField(
-                  decoration:   InputDecoration(
-                    hintText: 'Email',
-                    fillColor: Colors.white60,
-                    filled: true,
-                    prefixIcon: const Icon(Icons.alternate_email,color: Colors.black,),
-                    focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.orangeAccent),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.black12),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
-
-             const SizedBox(height: 25,),
-
-             Padding(
-               padding: const EdgeInsets.only(left: 20,right: 20),
-
-               child: TextFormField(
-                 decoration:   InputDecoration(
-
-                   hintText: 'Password',
-                   fillColor: Colors.white60,
-                   filled: true,
-                   prefixIcon: const Icon(Icons.lock_open,color: Colors.black,),
-                   suffixIcon: const Icon(Icons.visibility_off,),
-                   focusedBorder: OutlineInputBorder(
-                     borderSide: const BorderSide(color: Colors.orangeAccent),
-                     borderRadius: BorderRadius.circular(10),
-                   ),
-                   enabledBorder: OutlineInputBorder(
-                     borderSide: const BorderSide(color: Colors.black12),
-                     borderRadius: BorderRadius.circular(10),
-                   ),
-                 ),
-               ),
-             ),
-              const SizedBox(height: 300,),
-
-              Container(
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [Colors.deepOrange,Colors.orangeAccent]),
-                  borderRadius: BorderRadius.circular(10),
-
-                ),
-                height: 40,width: 300,
-                child: const Center(
-                  child: Text('Log In',
-                  style: TextStyle(
-                    fontSize: 27,
-                    color: Colors.white
-                  ),),
-                ),
-              ),
-
-             const SizedBox(height: 10,),
-
-                const Row(
+            ),
+            child: Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                      Text(
-                        'Don not have an account? ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black,
-                          fontFamily: 'RubikRegular',
+                  children: [
+                    const SizedBox(height: 60),
+                    // Custom Logo
+                    Container(
+                      height: 150.0,
+                      width: 150.0,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage('images/logo.png'),
+                          fit: BoxFit.cover,
                         ),
                       ),
-                  Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.orange,
-                      fontFamily: 'RubikMedium',
                     ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Welcome Back',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Please sign in to continue',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white70,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    _buildTextField(
+                      hintText: 'Email',
+                      icon: Icons.email,
+                      obscureText: false,
+                    ),
+                    const SizedBox(height: 20),
+                    _buildTextField(
+                      hintText: 'Password',
+                      icon: Icons.lock,
+                      obscureText: true,
+                    ),
+                    const SizedBox(height: 20),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          // Handle "Forgot Password"
+                        },
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
 
-                  ),
+                      onPressed: () {
+                        // Handle login
+                      },
 
-                ],
-              )
-            ],
+                      style: ElevatedButton.styleFrom(
+
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 100, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+
+                        ),
+                        backgroundColor: Colors.orange,
+
+                      ),
+                      child: const Text(
+                        'Log In',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don't have an account?",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            // Handle sign up
+                          },
+                          child: const Text(
+                            'Sign Up',
+                            style: TextStyle(
+                              color: Colors.orangeAccent,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildTextField(
+      {required String hintText,
+        required IconData icon,
+        required bool obscureText}) {
+    return TextField(
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        hintText: hintText,
+        prefixIcon: Icon(icon, color: Colors.white),
+        filled: true,
+        fillColor: Colors.white.withOpacity(0.3),
+        contentPadding: const EdgeInsets.symmetric(vertical: 20.0),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: BorderSide.none,
+        ),
+        hintStyle: const TextStyle(color: Colors.white70),
+      ),
+      style: const TextStyle(color: Colors.white),
+      cursorColor: Colors.white,
     );
   }
 }
